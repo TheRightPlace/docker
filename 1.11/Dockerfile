@@ -3,7 +3,14 @@ FROM alpine:3.4
 RUN apk add --no-cache \
 		ca-certificates \
 		curl \
-		openssl
+		openssl \
+		bash \
+		git \
+		openssh-client \
+		groff \
+		py-pip && \
+		pip install docker-compose && \
+		ln -sf /bin/bash /bin/sh
 
 ENV DOCKER_BUCKET get.docker.com
 ENV DOCKER_VERSION 1.11.2
